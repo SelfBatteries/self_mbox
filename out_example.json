@@ -1,0 +1,141 @@
+{
+   "ygPerms":{
+      "resourceCapabilityList":[
+         {
+            "resourceType":"GROUP",
+            "capabilities":[
+               {
+                  "name":"READ"
+               },
+               {
+                  "name":"JOIN"
+               }
+            ]
+         },
+         {
+            "resourceType":"PHOTO",
+            "capabilities":[
+
+            ]
+         },
+         {
+            "resourceType":"FILE",
+            "capabilities":[
+
+            ]
+         },
+         {
+            "resourceType":"MEMBER",
+            "capabilities":[
+
+            ]
+         },
+         {
+            "resourceType":"LINK",
+            "capabilities":[
+
+            ]
+         },
+         {
+            "resourceType":"CALENDAR",
+            "capabilities":[
+
+            ]
+         },
+         {
+            "resourceType":"DATABASE",
+            "capabilities":[
+
+            ]
+         },
+         {
+            "resourceType":"POLL",
+            "capabilities":[
+
+            ]
+         },
+         {
+            "resourceType":"MESSAGE",
+            "capabilities":[
+               {
+                  "name":"READ"
+               }
+            ]
+         },
+         {
+            "resourceType":"PENDING_MESSAGE",
+            "capabilities":[
+
+            ]
+         },
+         {
+            "resourceType":"ATTACHMENTS",
+            "capabilities":[
+               {
+                  "name":"READ"
+               }
+            ]
+         },
+         {
+            "resourceType":"PHOTOMATIC_ALBUMS",
+            "capabilities":[
+
+            ]
+         },
+         {
+            "resourceType":"MEMBERSHIP_TYPE",
+            "capabilities":[
+
+            ]
+         },
+         {
+            "resourceType":"POST",
+            "capabilities":[
+               {
+                  "name":"READ"
+               }
+            ]
+         },
+         {
+            "resourceType":"PIN",
+            "capabilities":[
+
+            ]
+         }
+      ],
+      "groupUrl":"groups.yahoo.com",
+      "intlCode":"us"
+   },
+   "comscore":"pageview_candidate",
+   "ygData":{
+      "userId":457608217,
+      "authorName":"Jan-Paul Bultmann",
+      "from":"Jan-Paul Bultmann &lt;janpaulbultmann@...&gt;",
+      "profile":"janpaulbultmann@ymail.com",
+      "replyTo":"LIST",
+      "senderId":"h0JFlaCvMtabn3NU7R6Wl1cSHP5F-I6ztOr7X15g8SN4dYjuuEFxGX9OmtsVNHp6VJUehVT5a-Hm0i7p-E5gp1bC70AeNTde4mGJY9Rc_Ww",
+      "spamInfo":{
+         "isSpam":false,
+         "reason":"12"
+      },
+      "subject":"Re: [self-interest] Hi, Self for Linux compiling Self to LLVM ...",
+      "postDate":"1315230793",
+      "msgId":2653,
+      "canDelete":false,
+      "contentTrasformed":false,
+      "systemMessage":false,
+      "headers":{
+         "messageIdInHeader":"PDcyMUMzRDk1LTYwMEYtNEQ1RC04MjhGLUY3NUM3NjU3MzJEMEBtZS5jb20+",
+         "inReplyToHeader":"PENBSFU4S3hqaG40RGdyZVlIS0NfNDVKZ2I2ZlFONVFDYTZyQ3o0NENieXY9OTdvNHlzZ0BtYWlsLmdtYWlsLmNvbT4=",
+         "referencesHeader":"PENBSFU4S3hqV1Z4TFdITz1LQ2tyVmdoQ082aXZXS1pHPVgtelJHY1RUPXp1c1UtWmhkZ0BtYWlsLmdtYWlsLmNvbT4gPDA3NTUxOTI1YzAxMzg5YmQwNTMxOTkxYmM3ZGE0Zjk4QHJ1c3NlbGwtYWxsZW4uY29tPiA8Q0FIVThLeGg1RlZKWmVLemtDT3VIVnBvOU5HSGh2UmFvSnlwWTBkcC1XQmYwWE9KZG9nQG1haWwuZ21haWwuY29tPiA8RUI5NjkwMjQtNEVCOS00Mjg0LTgyNEUtOEI3NjUxMUI3MkVCQG1lLmNvbT4gPENBSFU4S3hqaG40RGdyZVlIS0NfNDVKZ2I2ZlFONVFDYTZyQ3o0NENieXY9OTdvNHlzZ0BtYWlsLmdtYWlsLmNvbT4="
+      },
+      "prevInTopic":2652,
+      "nextInTopic":0,
+      "prevInTime":2652,
+      "nextInTime":2654,
+      "topicId":2647,
+      "numMessagesInTopic":7,
+      "msgSnippet":"... It s mango :D even though language of yoda one reminds of parsers more. Yoda is a small Image for embedded devices like the iPhone or newton ;) Cheers, Jan",
+      "rawEmail":"Return-Path: &lt;janpaulbultmann@...&gt;\r\nX-Sender: janpaulbultmann@...\r\nX-Apparently-To: self-interest@yahoogroups.com\r\nX-Received: (qmail 43149 invoked from network); 5 Sep 2011 13:53:18 -0000\r\nX-Received: from unknown (98.137.34.45)\n  by m2.grp.sp2.yahoo.com with QMQP; 5 Sep 2011 13:53:18 -0000\r\nX-Received: from unknown (HELO asmtpout027.mac.com) (17.148.16.102)\n  by mta2.grp.sp2.yahoo.com with SMTP; 5 Sep 2011 13:53:18 -0000\r\nMIME-version: 1.0\r\nContent-type: multipart/alternative;\n boundary=&quot;Boundary_(ID_SE8cAjZu9dYfaBEfZUz2vw)&quot;\r\nX-Received: from 192-168-254-104.ddns.local ([87.253.189.132])\n by asmtp027.mac.com\n (Oracle Communications Messaging Exchange Server 7u4-18.01 64bit (built Jul 15\n 2010)) with ESMTPSA id &lt;0LR100LVMYKPDF40@...&gt; for\n self-interest@yahoogroups.com; Mon, 05 Sep 2011 06:53:17 -0700 (PDT)\r\nX-Proofpoint-Virus-Version: vendor=fsecure\n engine=2.50.10432:5.4.6813,1.0.211,0.0.0000\n definitions=2011-09-05_04:2011-09-05,2011-09-05,1970-01-01 signatures=0\r\nX-Proofpoint-Spam-Details: rule=notspam policy=default score=0 spamscore=0\n ipscore=0 suspectscore=25 phishscore=0 bulkscore=0 adultscore=0\n classifier=spam adjust=0 reason=mlx engine=6.0.2-1012030000\n definitions=main-1109050125\r\nDate: Mon, 05 Sep 2011 15:53:13 +0200\r\nIn-reply-to:\n &lt;CAHU8Kxjhn4DgreYHKC_45Jgb6fQN5QCa6rCz44Cbyv=97o4ysg@...&gt;\r\nTo: self-interest@yahoogroups.com\r\nReferences:\n &lt;CAHU8KxjWVxLWHO=KCkrVghCO6ivWKZG=X-zRGcTT=zusU-Zhdg@...&gt;\n &lt;07551925c01389bd0531991bc7da4f98@...&gt;\n &lt;CAHU8Kxh5FVJZeKzkCOuHVpo9NGHhvRaoJypY0dp-WBf0XOJdog@...&gt;\n &lt;EB969024-4EB9-4284-824E-8B76511B72EB@...&gt;\n &lt;CAHU8Kxjhn4DgreYHKC_45Jgb6fQN5QCa6rCz44Cbyv=97o4ysg@...&gt;\r\nMessage-id: &lt;721C3D95-600F-4D5D-828F-F75C765732D0@...&gt;\r\nX-Mailer: Apple Mail (2.1244.3)\r\nX-Originating-IP: 17.148.16.102\r\nX-eGroups-Msg-Info: 1:12:0:0:0\r\nFrom: Jan-Paul Bultmann &lt;janpaulbultmann@...&gt;\r\nSubject: Re: [self-interest] Hi, Self for Linux compiling Self to LLVM ...\r\nX-Yahoo-Group-Post: member; u=457608217; y=Lw5y7I4R2LebrhjT6XtmppNot37LjSCrDwI4VobXvrCG3DwjL3fbZaeiYihzUNG11TVo-Q\r\nX-Yahoo-Profile: janpaulbultmann@...\r\n\r\n\r\n--Boundary_(ID_SE8cAjZu9dYfaBEfZUz2vw)\r\nContent-type: text/plain; charset=windows-1252\r\nContent-transfer-encoding: quoted-printable\r\n\r\n\nOn Sep 5, 2011, at 2:04 PM, Mildred Ki&#39;Lya wrote:\n\n&gt; \n&gt; \n&gt; \n&gt;&gt; \n&gt;&gt; Over th=\r\ne last two days, I found out about Klein, but the project seems dead, isn&#39;t=\r\n it? I just looked at the source tree on github and there are C source file=\r\ns, If it&#39;s supposed to be written in Self, then I don&#39;t understand their pu=\r\nrpose.\n&gt; The C code is there for the Debugger, Klein was designed to be abl=\r\ne to Run on one Machine and Debug another, to do this it needs a little hel=\r\nper if anything goes wrong and you, for example break the JIT, in this case=\r\n you need to fall back to a other native piece of code that is written in C=\r\n, but I think if Klein was finished it would be easy to write that debug se=\r\nrver in Self.\n&gt; \n&gt; Ok, thanks.\n&gt; \n&gt; So probably, I&#39;d need this cone at one =\r\npoint if I&#39;m playing with Klein. The problem is that&#39;s an Xcode project, an=\r\nd there is no makefile. I&#39;ll see that if I need it.\n&gt; \n&gt;&gt; \n&gt;&gt; As far as I c=\r\nan think, the VM itself can&#39;t be written in a language that requires a VM. =\r\nOr else, we&#39;d need to maintain that VM itself. The only way is to get a com=\r\npiler for Self.\n&gt; \n&gt; You underestimate the Self System a bit here, it was t=\r\nhe one that developed the Java JIT Hotspot stuff, before it it became that.=\r\n\n&gt; Klein is basically a Self compiler, yes it is also a VM, but with JIT no=\r\nw supported by most other languages it&#39;s not so uncommon anymore ;)\n&gt; What =\r\nit does when bootstrapping the VM is basically emitting the JIT code and th=\r\nen deep freezing it by statical linking and exporting to a file.\n&gt; \n&gt; That&#39;=\r\ns what I thought after I found the 2005 paper describing Klein.\n&gt; Apparentl=\r\ny, there is a PPC assembly backend that works, i386 and sparc modules. Basi=\r\ncally, what is needed is a llvm backend so it could be cross platform.\n&gt; \n&gt;=\r\n \n&gt;&gt; \n&gt;&gt; Thank you for the pointers, I already started my own compiler base=\r\nd on the syntax rules on the Self website, but these might be interesting.\n=\r\n&gt; Afaik there is also a Parser generator written in Self in the Klein bundl=\r\ne, I don&#39;t know if it is mango or yoda ^^, one of the two ;)\n&gt; \n&gt; Yoda I th=\r\nink.\nIt&#39;s mango :D even though language of yoda one reminds of parsers more=\r\n.\nYoda is a small Image for embedded devices like the iPhone or newton ;)\n\n=\r\nCheers, Jan\n&gt; I think i&#39;ll work with klein rather than developing everythin=\r\ng again.\n&gt; \n&gt; \n&gt; Mildred\n&gt; \n&gt; \n&gt; \n&gt; -- \n&gt; Mildred Ki&#39;Lya\n&gt; http://mildred.f=\r\nr\n&gt; \n&gt; \n\n\r\n--Boundary_(ID_SE8cAjZu9dYfaBEfZUz2vw)\r\nContent-type: text/html; charset=windows-1252\r\nContent-transfer-encoding: quoted-printable\r\n\r\n&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body style=3D&quot;word-wrap: break-word; -webkit-nbsp-mode:=\r\n space; -webkit-line-break: after-white-space; &quot;&gt;&lt;br&gt;&lt;div&gt;&lt;div&gt;On Sep 5, 20=\r\n11, at 2:04 PM, Mildred Ki&#39;Lya wrote:&lt;/div&gt;&lt;br class=3D&quot;Apple-interchange-n=\r\newline&quot;&gt;&lt;blockquote type=3D&quot;cite&quot;&gt;\n\n\n\n\n\n\n\n\n\n\n\n\n\n&lt;div style=3D&quot;background-co=\r\nlor: rgb(255, 255, 255); position: static; z-index: auto; &quot;&gt;\n&lt;span style=3D=\r\n&quot;display:none&quot;&gt;&nbsp;&lt;/span&gt;\n\n\n\n    &lt;div id=3D&quot;ygrp-text&quot;&gt;&lt;p&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;&lt;d=\r\niv class=3D&quot;gmail_quote&quot;&gt;&lt;br&gt;&lt;blockquote class=3D&quot;gmail_quote&quot; style=3D&quot;bor=\r\nder-left:1px #ccc solid;&quot;&gt;&lt;div style=3D&quot;background-color:#fff;&quot;&gt;&lt;div&gt;&lt;div&gt;&lt;=\r\ndiv&gt;&lt;div&gt;&lt;div&gt;&lt;div&gt;&lt;blockquote type=3D&quot;cite&quot;&gt;\n\n&lt;div style=3D&quot;background-col=\r\nor:rgb(255, 255, 255);&quot;&gt;&lt;div&gt;&lt;div class=3D&quot;gmail_quote&quot;&gt;&lt;div&gt;&lt;br&gt;Over the l=\r\nast two days, I found out about Klein, but the project seems dead, isn&#39;t it=\r\n? I just looked at the source tree on github and there are C source files, =\r\nIf it&#39;s supposed to be written in Self, then I don&#39;t understand their purpo=\r\nse.&lt;br&gt;\n\n&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/blockquote&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;The C code =\r\nis there for the Debugger, Klein was designed to be able to Run on one Mach=\r\nine and Debug another, to do this it needs a little helper if anything goes=\r\n wrong and you, for example break the JIT, in this case you need to fall ba=\r\nck to a other native piece of code that is written in C, but I think if Kle=\r\nin was finished it would be easy to write that debug server in Self.&lt;/div&gt;\n=\r\n\n&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/blockquote&gt;&lt;div&gt;&lt;br&gt;Ok, thanks.&lt;br&gt;&lt;br&gt;So probably, I&#39;=\r\nd need this cone at one point if I&#39;m playing with Klein. The problem is tha=\r\nt&#39;s an Xcode project, and there is no makefile. I&#39;ll see that if I need it.=\r\n&lt;br&gt;\n\n&lt;/div&gt;&lt;blockquote class=3D&quot;gmail_quote&quot; style=3D&quot;border-left:1px soli=\r\nd rgb(204, 204, 204);&quot;&gt;&lt;div style=3D&quot;background-color:rgb(255, 255, 255);&quot;&gt;=\r\n&lt;div&gt;&lt;div&gt;&lt;div&gt;&lt;div&gt;&lt;br&gt;\n&lt;blockquote type=3D&quot;cite&quot;&gt;&lt;div style=3D&quot;background=\r\n-color:rgb(255, 255, 255);&quot;&gt;&lt;div&gt;&lt;div&gt;&lt;div&gt;&lt;div class=3D&quot;gmail_quote&quot;&gt;&lt;div&gt;=\r\n\n&lt;br&gt;As far as I can think, the VM itself can&#39;t be written in a language th=\r\nat requires a VM. Or else, we&#39;d need to maintain that VM itself. The only w=\r\nay is to get a compiler for Self.&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;\n\n&lt;/div&gt;&lt;/bl=\r\nockquote&gt;&lt;/div&gt;&lt;div&gt;You underestimate the Self System a bit here, it was th=\r\ne one that developed the Java JIT Hotspot stuff, before it it became that.&lt;=\r\n/div&gt;&lt;div&gt;Klein is basically a Self compiler, yes it is also a VM, but with=\r\n JIT now supported by most other languages it&#39;s not so uncommon anymore ;)&lt;=\r\n/div&gt;\n\n&lt;div&gt;What it does when bootstrapping the VM is basically emitting th=\r\ne JIT code and then deep freezing it by statical linking and exporting to a=\r\n file.&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/blockquote&gt;&lt;div&gt;&lt;br&gt;That&#39;s what I tho=\r\nught after I found the 2005 paper describing Klein.&lt;br&gt;\nApparently, there i=\r\ns a PPC assembly backend that works, i386 and sparc modules. Basically, wha=\r\nt is needed is a llvm backend so it could be cross platform.&lt;br&gt;&lt;br&gt;\n&lt;/div&gt;=\r\n&lt;blockquote class=3D&quot;gmail_quote&quot; style=3D&quot;border-left:1px solid rgb(204, 2=\r\n04, 204);&quot;&gt;&lt;div style=3D&quot;background-color:rgb(255, 255, 255);&quot;&gt;&lt;div&gt;&lt;div&gt;&lt;d=\r\niv&gt;&lt;div&gt;&lt;br&gt;\n&lt;blockquote type=3D&quot;cite&quot;&gt;&lt;div style=3D&quot;background-color:rgb(2=\r\n55, 255, 255);&quot;&gt;&lt;div&gt;&lt;div&gt;&lt;div&gt;&lt;div class=3D&quot;gmail_quote&quot;&gt;&lt;div&gt;&lt;div&gt;&lt;/div&gt;&lt;=\r\ndiv&gt;&lt;br&gt;Thank you for the pointers, I already started my own compiler based=\r\n on the syntax rules on the Self website, but these might be interesting.&lt;b=\r\nr&gt;\n\n&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/blockquote&gt;&lt;/div&gt;Afaik ther=\r\ne is also a Parser generator written in Self in the Klein bundle, I don&#39;t k=\r\nnow if it is mango or yoda ^^, one of the two ;)&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;\n&lt;/=\r\nblockquote&gt;&lt;div&gt;&lt;br&gt;Yoda I think.&lt;br&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/=\r\nblockquote&gt;It&#39;s mango :D even though language of yoda one reminds of parser=\r\ns more.&lt;/div&gt;&lt;div&gt;Yoda is a small Image for embedded devices like the iPhon=\r\ne or newton ;)&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Cheers, Jan&lt;/div&gt;&lt;div&gt;&lt;blockquote t=\r\nype=3D&quot;cite&quot;&gt;&lt;div style=3D&quot;background-color: rgb(255, 255, 255); position: =\r\nstatic; z-index: auto; &quot;&gt;&lt;div id=3D&quot;ygrp-mlmsg&quot; style=3D&quot;position:relative;=\r\n&quot;&gt;&lt;div id=3D&quot;ygrp-msg&quot; style=3D&quot;z-index: 1;&quot;&gt;&lt;div id=3D&quot;ygrp-text&quot;&gt;&lt;div cla=\r\nss=3D&quot;gmail_quote&quot;&gt;&lt;div&gt;I think i&#39;ll work with klein rather than developing=\r\n everything again.&lt;/div&gt;&lt;br&gt;&lt;br&gt;Mildred&lt;br&gt;&lt;/div&gt;&lt;br&gt;&lt;br clear=3D&quot;all&quot;&gt;&lt;br&gt;=\r\n-- &lt;br&gt;Mildred Ki&#39;Lya&lt;br&gt;&lt;a href=3D&quot;http://mildred.fr/&quot; target=3D&quot;_blank&quot;&gt;h=\r\nttp://mildred.fr&lt;/a&gt;&lt;br&gt;&lt;div&gt;&lt;br class=3D&quot;webkit-block-placeholder&quot;&gt;&lt;/div&gt;\n=\r\n\n    &lt;/div&gt;\n     \n\n    \n\n&lt;/div&gt;\n\n\n\n&lt;!-- end group email --&gt;\n\n&lt;/blockquote&gt;&lt;=\r\n/div&gt;&lt;br&gt;&lt;/body&gt;&lt;/html&gt;\r\n--Boundary_(ID_SE8cAjZu9dYfaBEfZUz2vw)--\r\n\n"
+   }
+}
