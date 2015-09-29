@@ -1,0 +1,246 @@
+Return-Path: &lt;janpaulbultmann@...&gt;
+X-Sender: janpaulbultmann@...
+X-Apparently-To: self-interest@yahoogroups.com
+X-Received: (qmail 43149 invoked from network); 5 Sep 2011 13:53:18 -0000
+X-Received: from unknown (98.137.34.45)
+  by m2.grp.sp2.yahoo.com with QMQP; 5 Sep 2011 13:53:18 -0000
+X-Received: from unknown (HELO asmtpout027.mac.com) (17.148.16.102)
+  by mta2.grp.sp2.yahoo.com with SMTP; 5 Sep 2011 13:53:18 -0000
+MIME-version: 1.0
+Content-type: multipart/alternative;
+ boundary=&quot;Boundary_(ID_SE8cAjZu9dYfaBEfZUz2vw)&quot;
+X-Received: from 192-168-254-104.ddns.local ([87.253.189.132])
+ by asmtp027.mac.com
+ (Oracle Communications Messaging Exchange Server 7u4-18.01 64bit (built Jul 15
+ 2010)) with ESMTPSA id &lt;0LR100LVMYKPDF40@...&gt; for
+ self-interest@yahoogroups.com; Mon, 05 Sep 2011 06:53:17 -0700 (PDT)
+X-Proofpoint-Virus-Version: vendor=fsecure
+ engine=2.50.10432:5.4.6813,1.0.211,0.0.0000
+ definitions=2011-09-05_04:2011-09-05,2011-09-05,1970-01-01 signatures=0
+X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 spamscore=0
+ ipscore=0 suspectscore=25 phishscore=0 bulkscore=0 adultscore=0
+ classifier=spam adjust=0 reason=mlx engine=6.0.2-1012030000
+ definitions=main-1109050125
+Date: Mon, 05 Sep 2011 15:53:13 +0200
+In-reply-to:
+ &lt;CAHU8Kxjhn4DgreYHKC_45Jgb6fQN5QCa6rCz44Cbyv=97o4ysg@...&gt;
+To: self-interest@yahoogroups.com
+References:
+ &lt;CAHU8KxjWVxLWHO=KCkrVghCO6ivWKZG=X-zRGcTT=zusU-Zhdg@...&gt;
+ &lt;07551925c01389bd0531991bc7da4f98@...&gt;
+ &lt;CAHU8Kxh5FVJZeKzkCOuHVpo9NGHhvRaoJypY0dp-WBf0XOJdog@...&gt;
+ &lt;EB969024-4EB9-4284-824E-8B76511B72EB@...&gt;
+ &lt;CAHU8Kxjhn4DgreYHKC_45Jgb6fQN5QCa6rCz44Cbyv=97o4ysg@...&gt;
+Message-id: &lt;721C3D95-600F-4D5D-828F-F75C765732D0@...&gt;
+X-Mailer: Apple Mail (2.1244.3)
+X-Originating-IP: 17.148.16.102
+X-eGroups-Msg-Info: 1:12:0:0:0
+From: Jan-Paul Bultmann &lt;janpaulbultmann@...&gt;
+Subject: Re: [self-interest] Hi, Self for Linux compiling Self to LLVM ...
+X-Yahoo-Group-Post: member; u=457608217; y=Lw5y7I4R2LebrhjT6XtmppNot37LjSCrDwI4VobXvrCG3DwjL3fbZaeiYihzUNG11TVo-Q
+X-Yahoo-Profile: janpaulbultmann@...
+
+
+--Boundary_(ID_SE8cAjZu9dYfaBEfZUz2vw)
+Content-type: text/plain; charset=windows-1252
+Content-transfer-encoding: quoted-printable
+
+
+On Sep 5, 2011, at 2:04 PM, Mildred Ki&#39;Lya wrote:
+
+&gt; 
+&gt; 
+&gt; 
+&gt;&gt; 
+&gt;&gt; Over th=
+e last two days, I found out about Klein, but the project seems dead, isn&#39;t=
+ it? I just looked at the source tree on github and there are C source file=
+s, If it&#39;s supposed to be written in Self, then I don&#39;t understand their pu=
+rpose.
+&gt; The C code is there for the Debugger, Klein was designed to be abl=
+e to Run on one Machine and Debug another, to do this it needs a little hel=
+per if anything goes wrong and you, for example break the JIT, in this case=
+ you need to fall back to a other native piece of code that is written in C=
+, but I think if Klein was finished it would be easy to write that debug se=
+rver in Self.
+&gt; 
+&gt; Ok, thanks.
+&gt; 
+&gt; So probably, I&#39;d need this cone at one =
+point if I&#39;m playing with Klein. The problem is that&#39;s an Xcode project, an=
+d there is no makefile. I&#39;ll see that if I need it.
+&gt; 
+&gt;&gt; 
+&gt;&gt; As far as I c=
+an think, the VM itself can&#39;t be written in a language that requires a VM. =
+Or else, we&#39;d need to maintain that VM itself. The only way is to get a com=
+piler for Self.
+&gt; 
+&gt; You underestimate the Self System a bit here, it was t=
+he one that developed the Java JIT Hotspot stuff, before it it became that.=
+
+&gt; Klein is basically a Self compiler, yes it is also a VM, but with JIT no=
+w supported by most other languages it&#39;s not so uncommon anymore ;)
+&gt; What =
+it does when bootstrapping the VM is basically emitting the JIT code and th=
+en deep freezing it by statical linking and exporting to a file.
+&gt; 
+&gt; That&#39;=
+s what I thought after I found the 2005 paper describing Klein.
+&gt; Apparentl=
+y, there is a PPC assembly backend that works, i386 and sparc modules. Basi=
+cally, what is needed is a llvm backend so it could be cross platform.
+&gt; 
+&gt;=
+ 
+&gt;&gt; 
+&gt;&gt; Thank you for the pointers, I already started my own compiler base=
+d on the syntax rules on the Self website, but these might be interesting.
+=
+&gt; Afaik there is also a Parser generator written in Self in the Klein bundl=
+e, I don&#39;t know if it is mango or yoda ^^, one of the two ;)
+&gt; 
+&gt; Yoda I th=
+ink.
+It&#39;s mango :D even though language of yoda one reminds of parsers more=
+.
+Yoda is a small Image for embedded devices like the iPhone or newton ;)
+
+=
+Cheers, Jan
+&gt; I think i&#39;ll work with klein rather than developing everythin=
+g again.
+&gt; 
+&gt; 
+&gt; Mildred
+&gt; 
+&gt; 
+&gt; 
+&gt; -- 
+&gt; Mildred Ki&#39;Lya
+&gt; http://mildred.f=
+r
+&gt; 
+&gt; 
+
+
+--Boundary_(ID_SE8cAjZu9dYfaBEfZUz2vw)
+Content-type: text/html; charset=windows-1252
+Content-transfer-encoding: quoted-printable
+
+&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body style=3D&quot;word-wrap: break-word; -webkit-nbsp-mode:=
+ space; -webkit-line-break: after-white-space; &quot;&gt;&lt;br&gt;&lt;div&gt;&lt;div&gt;On Sep 5, 20=
+11, at 2:04 PM, Mildred Ki&#39;Lya wrote:&lt;/div&gt;&lt;br class=3D&quot;Apple-interchange-n=
+ewline&quot;&gt;&lt;blockquote type=3D&quot;cite&quot;&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;div style=3D&quot;background-co=
+lor: rgb(255, 255, 255); position: static; z-index: auto; &quot;&gt;
+&lt;span style=3D=
+&quot;display:none&quot;&gt;&nbsp;&lt;/span&gt;
+
+
+
+    &lt;div id=3D&quot;ygrp-text&quot;&gt;&lt;p&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;&lt;d=
+iv class=3D&quot;gmail_quote&quot;&gt;&lt;br&gt;&lt;blockquote class=3D&quot;gmail_quote&quot; style=3D&quot;bor=
+der-left:1px #ccc solid;&quot;&gt;&lt;div style=3D&quot;background-color:#fff;&quot;&gt;&lt;div&gt;&lt;div&gt;&lt;=
+div&gt;&lt;div&gt;&lt;div&gt;&lt;div&gt;&lt;blockquote type=3D&quot;cite&quot;&gt;
+
+&lt;div style=3D&quot;background-col=
+or:rgb(255, 255, 255);&quot;&gt;&lt;div&gt;&lt;div class=3D&quot;gmail_quote&quot;&gt;&lt;div&gt;&lt;br&gt;Over the l=
+ast two days, I found out about Klein, but the project seems dead, isn&#39;t it=
+? I just looked at the source tree on github and there are C source files, =
+If it&#39;s supposed to be written in Self, then I don&#39;t understand their purpo=
+se.&lt;br&gt;
+
+&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/blockquote&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;The C code =
+is there for the Debugger, Klein was designed to be able to Run on one Mach=
+ine and Debug another, to do this it needs a little helper if anything goes=
+ wrong and you, for example break the JIT, in this case you need to fall ba=
+ck to a other native piece of code that is written in C, but I think if Kle=
+in was finished it would be easy to write that debug server in Self.&lt;/div&gt;
+=
+
+&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/blockquote&gt;&lt;div&gt;&lt;br&gt;Ok, thanks.&lt;br&gt;&lt;br&gt;So probably, I&#39;=
+d need this cone at one point if I&#39;m playing with Klein. The problem is tha=
+t&#39;s an Xcode project, and there is no makefile. I&#39;ll see that if I need it.=
+&lt;br&gt;
+
+&lt;/div&gt;&lt;blockquote class=3D&quot;gmail_quote&quot; style=3D&quot;border-left:1px soli=
+d rgb(204, 204, 204);&quot;&gt;&lt;div style=3D&quot;background-color:rgb(255, 255, 255);&quot;&gt;=
+&lt;div&gt;&lt;div&gt;&lt;div&gt;&lt;div&gt;&lt;br&gt;
+&lt;blockquote type=3D&quot;cite&quot;&gt;&lt;div style=3D&quot;background=
+-color:rgb(255, 255, 255);&quot;&gt;&lt;div&gt;&lt;div&gt;&lt;div&gt;&lt;div class=3D&quot;gmail_quote&quot;&gt;&lt;div&gt;=
+
+&lt;br&gt;As far as I can think, the VM itself can&#39;t be written in a language th=
+at requires a VM. Or else, we&#39;d need to maintain that VM itself. The only w=
+ay is to get a compiler for Self.&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;/div&gt;&lt;/bl=
+ockquote&gt;&lt;/div&gt;&lt;div&gt;You underestimate the Self System a bit here, it was th=
+e one that developed the Java JIT Hotspot stuff, before it it became that.&lt;=
+/div&gt;&lt;div&gt;Klein is basically a Self compiler, yes it is also a VM, but with=
+ JIT now supported by most other languages it&#39;s not so uncommon anymore ;)&lt;=
+/div&gt;
+
+&lt;div&gt;What it does when bootstrapping the VM is basically emitting th=
+e JIT code and then deep freezing it by statical linking and exporting to a=
+ file.&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/blockquote&gt;&lt;div&gt;&lt;br&gt;That&#39;s what I tho=
+ught after I found the 2005 paper describing Klein.&lt;br&gt;
+Apparently, there i=
+s a PPC assembly backend that works, i386 and sparc modules. Basically, wha=
+t is needed is a llvm backend so it could be cross platform.&lt;br&gt;&lt;br&gt;
+&lt;/div&gt;=
+&lt;blockquote class=3D&quot;gmail_quote&quot; style=3D&quot;border-left:1px solid rgb(204, 2=
+04, 204);&quot;&gt;&lt;div style=3D&quot;background-color:rgb(255, 255, 255);&quot;&gt;&lt;div&gt;&lt;div&gt;&lt;d=
+iv&gt;&lt;div&gt;&lt;br&gt;
+&lt;blockquote type=3D&quot;cite&quot;&gt;&lt;div style=3D&quot;background-color:rgb(2=
+55, 255, 255);&quot;&gt;&lt;div&gt;&lt;div&gt;&lt;div&gt;&lt;div class=3D&quot;gmail_quote&quot;&gt;&lt;div&gt;&lt;div&gt;&lt;/div&gt;&lt;=
+div&gt;&lt;br&gt;Thank you for the pointers, I already started my own compiler based=
+ on the syntax rules on the Self website, but these might be interesting.&lt;b=
+r&gt;
+
+&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/blockquote&gt;&lt;/div&gt;Afaik ther=
+e is also a Parser generator written in Self in the Klein bundle, I don&#39;t k=
+now if it is mango or yoda ^^, one of the two ;)&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;/=
+blockquote&gt;&lt;div&gt;&lt;br&gt;Yoda I think.&lt;br&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/=
+blockquote&gt;It&#39;s mango :D even though language of yoda one reminds of parser=
+s more.&lt;/div&gt;&lt;div&gt;Yoda is a small Image for embedded devices like the iPhon=
+e or newton ;)&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Cheers, Jan&lt;/div&gt;&lt;div&gt;&lt;blockquote t=
+ype=3D&quot;cite&quot;&gt;&lt;div style=3D&quot;background-color: rgb(255, 255, 255); position: =
+static; z-index: auto; &quot;&gt;&lt;div id=3D&quot;ygrp-mlmsg&quot; style=3D&quot;position:relative;=
+&quot;&gt;&lt;div id=3D&quot;ygrp-msg&quot; style=3D&quot;z-index: 1;&quot;&gt;&lt;div id=3D&quot;ygrp-text&quot;&gt;&lt;div cla=
+ss=3D&quot;gmail_quote&quot;&gt;&lt;div&gt;I think i&#39;ll work with klein rather than developing=
+ everything again.&lt;/div&gt;&lt;br&gt;&lt;br&gt;Mildred&lt;br&gt;&lt;/div&gt;&lt;br&gt;&lt;br clear=3D&quot;all&quot;&gt;&lt;br&gt;=
+-- &lt;br&gt;Mildred Ki&#39;Lya&lt;br&gt;&lt;a href=3D&quot;http://mildred.fr/&quot; target=3D&quot;_blank&quot;&gt;h=
+ttp://mildred.fr&lt;/a&gt;&lt;br&gt;&lt;div&gt;&lt;br class=3D&quot;webkit-block-placeholder&quot;&gt;&lt;/div&gt;
+=
+
+    &lt;/div&gt;
+     
+
+    
+
+&lt;/div&gt;
+
+
+
+&lt;!-- end group email --&gt;
+
+&lt;/blockquote&gt;&lt;=
+/div&gt;&lt;br&gt;&lt;/body&gt;&lt;/html&gt;
+--Boundary_(ID_SE8cAjZu9dYfaBEfZUz2vw)--
+
+
