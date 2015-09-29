@@ -4,11 +4,25 @@
 # Interpreter version: python 2.7
 #
 # Imports =====================================================================
+# import html2text
+import mailbox
+from email.parser import Parser
+
 from grab_self_mail_list import ShelveDB
 
 
 # Variables ===================================================================
-# Functions & classes =========================================================
+# Functions ===================================================================
+def to_mbox(messages, filename="self_archive.mbox"):
+    mbox = mailbox.mbox(filename)
+
+    parser = Parser()
+    for msg in messages.values():
+        parsed = parser.parsestr(msg.raw_email.encode("utf-8"))
+        mbox.add(parsed)
+
+
+# Classes =====================================================================
 class Message(object):
     def __init__(self, uid, author_name, subject, raw_email, timestamp):
         self.uid = uid
@@ -66,4 +80,4 @@ if __name__ == '__main__':
         for uid, msg in db.msgs.iteritems()
     }
 
-    print messages[1], messages[1].timestamp
+    print messages[max(messages.keys())]#, messages[-1].timestamp
