@@ -31,22 +31,6 @@ def shelver(fn):
     db.close()
 
 
-def get_message(uid):
-    try:
-        data = DOWN.download(URL % uid)
-    except HTTPError as e:
-        return None
-
-    return json.loads(data)
-
-
-def all_messages(db):
-    for i in xrange(1000000):
-        uid = i + 1
-        if uid not in db:
-            yield uid, get_message(uid)
-
-
 class ShelveDB(object):
     def __init__(self, fn="msg_db.shelve"):
         self.fn = fn
@@ -67,7 +51,7 @@ class ShelveDB(object):
         return self.msgs[key]
 
     def __contains__(self, item):
-        return (item in self.msgs) or (item in self.missing)
+        return (item in self.msgs)# or (item in self.missing)
 
     def has_key(self, k):
         return self.msgs.has_key(k)
@@ -78,7 +62,23 @@ class ShelveDB(object):
     def save(self):
         with shelver("msg_db.shelve") as db:
             db[self.key] = self.msgs
-            db[self.missing_key] = self.missing
+            db[self.missing_key] = set()#self.missing
+
+
+def get_message(uid):
+    try:
+        data = DOWN.download(URL % uid)
+    except HTTPError as e:
+        return None
+
+    return json.loads(data)
+
+
+def all_messages(db):
+    for i in xrange(1000000):
+        uid = i + 1
+        if uid not in db:
+            yield uid, get_message(uid)
 
 
 # Main program ================================================================
@@ -86,13 +86,17 @@ if __name__ == '__main__':
     db = ShelveDB()
 
     missing_cnt = 0
+    last_missing_uid = 0
     for uid, message in all_messages(db):
-        if missing_cnt >= 5:  # 5 missing messages in a row means end
+        # 5 missing messages in a row means end
+        if missing_cnt >= 5:
             break
+        if uid - last_missing_uid > 5:  # make sure that they are in row
+            missing_cnt = 0
 
         if not message:
             missing_cnt += 1
-            # db.add_missing(uid)  # this will ban last messages once they appear
+            last_missing_uid = uid
             continue
 
         missing_cnt = 0  # row of missing messages broken
