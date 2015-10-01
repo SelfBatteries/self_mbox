@@ -7,6 +7,7 @@
 import time
 import mailbox
 from email.parser import Parser
+from email.utils import formatdate
 from dateutil.parser import parse as date_parse
 
 # import html2text
@@ -18,21 +19,35 @@ from grab_self_mail_list import ShelveDB
 def to_mbox(messages, filename="self_archive.mbox"):
     mbox = mailbox.mbox(filename)
 
-    parser = Parser()
     for msg in messages.values():
-        parsed = parser.parsestr(msg.raw_email.encode("utf-8"))
-        mbox.add(parsed)
+        mbox.add(msg.parsed)
 
 
 # Classes =====================================================================
 class Message(object):
-    def __init__(self, uid, author_name, subject, raw_email, timestamp):
+    def __init__(self, uid, author_name, subject, raw_email, timestamp,
+                 user_id):
         self.uid = uid
-        self.author_name = author_name
         self.timestamp = timestamp
-        self.subject = subject
-        self.raw_email = raw_email
-        self.parsed = Parser().parsestr(raw_email.encode("utf-8"))
+        self.user_id = user_id
+
+        # mail module in py2 requires utf-8
+        self.author_name = author_name.encode("utf-8")
+        self.subject = subject.encode("utf-8")
+        self.raw_email = raw_email.encode("utf-8")
+
+        # ugly, I know, but it only takes 1s for all the messages
+        parsed = raw_email.replace("&lt;", "<")\
+                          .replace("&lt=\n;", "<=\n")\
+                          .replace("&l=\nt;", "<=\n")\
+                          .replace("&=\nlt;", "<=\n")\
+                          .replace("&#39;", "'")\
+                          .replace("&gt;", ">")\
+                          .replace("&gt=\n;", ">=\n")\
+                          .replace("&g=\nt;", ">=\n")\
+                          .replace("&=\ngt;", ">=\n")\
+                          .replace("&quot;", '"')
+        self.parsed = Parser().parsestr(parsed.encode("utf-8"))
 
         self._topic_id = None
         self._prev_in_topic = None
@@ -42,6 +57,28 @@ class Message(object):
 
     def _postprocess(self):
         self._self_parse_time()
+        self._parse_subject()
+
+        # mail objects look like dicts, but aren't - you cannot rewrite item,
+        # you have to delete it first and then save it again
+        del self.parsed["To"]
+        del self.parsed["From"]
+        del self.parsed["Date"]
+        del self.parsed["Subject"]
+        del self.parsed["Reply-To"]
+        del self.parsed["Return-Path"]
+        del self.parsed["X-Original-From"]
+
+        self.parsed["From"] = "%s <%d>" % (self.author_name, self.user_id)
+        self.parsed["Date"] = formatdate(self.timestamp)
+        self.parsed["Subject"] = self.subject
+
+    def _parse_subject(self):
+        si_sign = "[self-interest]"
+        if si_sign in self.subject:
+            self.subject = self.subject.replace(si_sign, "")
+
+        self.subject = " ".join(self.subject.split())  # remove multiple spaces
 
     def _self_parse_time(self):
         def parse_date(s):
@@ -96,19 +133,20 @@ class Message(object):
 
     @staticmethod
     def from_json(j_msg):
-        uid = j_msg["ygData"]["msgId"]
+        yg_data = j_msg["ygData"]
 
         msg = Message(
-            uid=uid,
-            author_name=j_msg["ygData"]["authorName"],
-            subject=j_msg["ygData"]["subject"],
-            raw_email=j_msg["ygData"]["rawEmail"],
-            timestamp=int(j_msg["ygData"].get("postDate", 0)),
+            uid=yg_data["msgId"],
+            author_name=yg_data["authorName"],
+            subject=yg_data["subject"],
+            raw_email=yg_data["rawEmail"],
+            timestamp=int(yg_data.get("postDate", 0)),
+            user_id=int(yg_data["userId"])
         )
 
-        msg._topic_id = j_msg["ygData"]["topicId"]
-        msg._prev_in_topic = j_msg["ygData"]["prevInTopic"]
-        msg._next_in_topic = j_msg["ygData"]["nextInTopic"]
+        msg._topic_id = yg_data["topicId"]
+        msg._prev_in_topic = yg_data["prevInTopic"]
+        msg._next_in_topic = yg_data["nextInTopic"]
 
         if msg._topic_id == 0:
             msg._topic_id = None
@@ -143,5 +181,7 @@ if __name__ == '__main__':
     print last
     print last.timestamp
 
-    # to_mbox(messages, "self")
-    print last.parsed["Date"]
+    to_mbox(messages, "self")
+
+    # for uid, msg in db.msgs.iteritems():
+    #     print msg["ygData"].get("profile", None)
