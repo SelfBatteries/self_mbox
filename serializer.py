@@ -4,8 +4,10 @@
 # Interpreter version: python 2.7
 #
 # Imports =====================================================================
+import os
 import time
 import mailbox
+import os.path
 from email.parser import Parser
 from email.utils import formatdate
 from dateutil.parser import parse as date_parse
@@ -15,63 +17,38 @@ from grab_self_mail_list import ShelveDB
 
 
 # Variables ===================================================================
-# Functions ===================================================================
-def to_mbox(messages, filename="self_archive.mbox"):
-    mbox = mailbox.mbox(filename)
-
-    for msg in messages.values():
-        mbox.add(msg.parsed)
-
-
 # Classes =====================================================================
 class Message(object):
     def __init__(self, uid, author_name, subject, raw_email, timestamp,
                  user_id):
         self.uid = uid
-        self.timestamp = timestamp
         self.user_id = user_id
+        self.timestamp = timestamp
 
         # mail module in py2 requires utf-8
-        self.author_name = author_name.encode("utf-8")
         self.subject = subject.encode("utf-8")
         self.raw_email = raw_email.encode("utf-8")
+        self.author_name = author_name.encode("utf-8")
 
         # ugly, I know, but it only takes 1s for all the messages
-        parsed = raw_email.replace("&lt;", "<")\
-                          .replace("&lt=\n;", "<=\n")\
-                          .replace("&l=\nt;", "<=\n")\
-                          .replace("&=\nlt;", "<=\n")\
-                          .replace("&#39;", "'")\
-                          .replace("&gt;", ">")\
-                          .replace("&gt=\n;", ">=\n")\
-                          .replace("&g=\nt;", ">=\n")\
-                          .replace("&=\ngt;", ">=\n")\
-                          .replace("&quot;", '"')
-        self.parsed = Parser().parsestr(parsed.encode("utf-8"))
+        # http://bruno.im/2009/dec/18/decoding-emails-python/
+        raw_email = raw_email.replace("&lt;", "<") \
+                             .replace("&lt=\n;", "<=\n") \
+                             .replace("&l=\nt;", "<=\n") \
+                             .replace("&=\nlt;", "<=\n") \
+                             .replace("&#39;", "'") \
+                             .replace("&gt;", ">") \
+                             .replace("&gt=\n;", ">=\n") \
+                             .replace("&g=\nt;", ">=\n") \
+                             .replace("&=\ngt;", ">=\n") \
+                             .replace("&quot;", '"')
+        self.email_msg = Parser().parsestr(raw_email.encode("utf-8"))
 
         self._topic_id = None
         self._prev_in_topic = None
         self._next_in_topic = None
 
         self._postprocess()
-
-    def _postprocess(self):
-        self._self_parse_time()
-        self._parse_subject()
-
-        # mail objects look like dicts, but aren't - you cannot rewrite item,
-        # you have to delete it first and then save it again
-        del self.parsed["To"]
-        del self.parsed["From"]
-        del self.parsed["Date"]
-        del self.parsed["Subject"]
-        del self.parsed["Reply-To"]
-        del self.parsed["Return-Path"]
-        del self.parsed["X-Original-From"]
-
-        self.parsed["From"] = "%s <%d>" % (self.author_name, self.user_id)
-        self.parsed["Date"] = formatdate(self.timestamp)
-        self.parsed["Subject"] = self.subject
 
     def _parse_subject(self):
         si_sign = "[self-interest]"
@@ -81,7 +58,7 @@ class Message(object):
         self.subject = " ".join(self.subject.split())  # remove multiple spaces
 
     def _self_parse_time(self):
-        def parse_date(s):
+        def date_from_string(s):
             try:
                 return date_parse(s)
             except ValueError:
@@ -90,8 +67,8 @@ class Message(object):
         # try to parse dates in `Received` headers, which may look like this:
         # (qmail 43149 invoked from network); 5 Sep 2011 13:53:18 -0000 (...)
         received = (
-            parse_date(val.split(";")[-1].strip().split("(")[0])
-            for key, val in self.parsed.items()
+            date_from_string(val.split(";")[-1].strip().split("(")[0])
+            for key, val in self.email_msg.items()
             if key == "Received"
         )
 
@@ -111,8 +88,8 @@ class Message(object):
         ]
 
         timestamps = received_timestamps
-        if "Date" in self.parsed:
-            date = parse_date(self.parsed["Date"])
+        if "Date" in self.email_msg:
+            date = date_from_string(self.email_msg["Date"])
 
             if date:
                 timestamps.append(datetime_to_timestamp(date))
@@ -126,10 +103,28 @@ class Message(object):
         timestamp = min(
             timestamp
             for timestamp in timestamps
-            if timestamp and timestamp > 883612800  # skip < 1.1.1998
+            if timestamp and timestamp > 883612800  # skip < 1.1.1998 (first msg)
         )
 
         self.timestamp = int(timestamp)
+
+    def _postprocess(self):
+        self._self_parse_time()
+        self._parse_subject()
+
+        # mail objects look like dicts, but aren't - you cannot rewrite item,
+        # you have to delete it first and then save it again
+        del self.email_msg["To"]
+        del self.email_msg["From"]
+        del self.email_msg["Date"]
+        del self.email_msg["Subject"]
+        del self.email_msg["Reply-To"]
+        del self.email_msg["Return-Path"]
+        del self.email_msg["X-Original-From"]
+
+        self.email_msg["From"] = "%s <%d>" % (self.author_name, self.user_id)
+        self.email_msg["Date"] = formatdate(self.timestamp)
+        self.email_msg["Subject"] = self.subject
 
     @staticmethod
     def from_json(j_msg):
@@ -157,15 +152,19 @@ class Message(object):
 
         return msg
 
+    @staticmethod
+    def to_mbox(messages, filename="self_archive.mbox"):
+        # mailbox merges, we don't want that
+        if os.path.exists(filename):
+            os.unlink(filename)
+
+        mbox = mailbox.mbox(filename)
+
+        for msg in messages.values():
+            mbox.add(msg.email_msg)
+
     def __repr__(self):
         return "Message(uid=%d, subject=%s)" % (self.uid, repr(self.subject))
-
-
-def Topic(self):
-    def __init__(self, title, post, replies):
-        self.title = title
-        self.post = post
-        self.replies = replies
 
 
 # Main program ================================================================
@@ -177,11 +176,7 @@ if __name__ == '__main__':
         for uid, msg in db.msgs.iteritems()
     }
 
-    last = messages[max(messages.keys())]
-    print last
-    print last.timestamp
-
-    to_mbox(messages, "self")
+    Message.to_mbox(messages, "self")
 
     # for uid, msg in db.msgs.iteritems():
     #     print msg["ygData"].get("profile", None)

@@ -5,7 +5,6 @@
 #
 # Imports =====================================================================
 import json
-import shelve
 from urllib2 import HTTPError
 
 import httpkie
