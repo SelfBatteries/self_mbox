@@ -64,12 +64,20 @@ class Message(object):
             except ValueError:
                 return None
 
+        def extract_date_from_received(s):
+            # (qmail 43149 invoked from ..); 5 Sep 2011 13:53:18 -0000 (...)
+            # -> 5 Sep 2011 13:53:18 -0000 (...)
+            s = s.split(";")[-1].strip()
+
+            # 5 Sep 2011 13:53:18 -0000 (...) -> 5 Sep 2011 13:53:18 -0000
+            return s.split("(")[0]
+
         # try to parse dates in `Received` headers, which may look like this:
         # (qmail 43149 invoked from network); 5 Sep 2011 13:53:18 -0000 (...)
         received = (
-            date_from_string(val.split(";")[-1].strip().split("(")[0])
+            date_from_string(extract_date_from_received(val))
             for key, val in self.email_msg.items()
-            if key == "Received"
+            if key == "Received" or key == "X-Received"
         )
 
         def datetime_to_timestamp(dt):
@@ -81,18 +89,11 @@ class Message(object):
             except ValueError:
                 return None
 
-        received_timestamps = [
+        timestamps = [
             datetime_to_timestamp(dt)
             for dt in received
-            if dt  # to filter None from previous expression
+            if dt  # filter None from previous expression
         ]
-
-        timestamps = received_timestamps
-        if "Date" in self.email_msg:
-            date = date_from_string(self.email_msg["Date"])
-
-            if date:
-                timestamps.append(datetime_to_timestamp(date))
 
         if self.timestamp > 0:
             timestamps.append(self.timestamp)
@@ -100,10 +101,12 @@ class Message(object):
         if not timestamps:
             raise ValueError("Couldn't find any reasonable timestamp!")
 
+        def older_than_1998(timestamp):
+            return timestamp > 883612800
+
         timestamp = min(
-            timestamp
-            for timestamp in timestamps
-            if timestamp and timestamp > 883612800  # skip < 1.1.1998 (first msg)
+            ts for ts in timestamps
+            if ts and older_than_1998(ts)
         )
 
         self.timestamp = int(timestamp)
