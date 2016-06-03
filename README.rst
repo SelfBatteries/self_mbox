@@ -1,7 +1,7 @@
 Self mbox
 =========
 
-This repository contains archive of the `Self mail conference`_ from 26.7.1990 to 2.6.2016 in one `mbox file`_, with 4336 serialized email messages. This file may be imported into your favorite mail client (i used Thunderbird), so you may read the whole discussion from the beginning to the end.
+This repository contains archive of the `Self mail conference`_ (http://selflanguage.org) from 26.7.1990 to 2.6.2016 in one `mbox file`_, with 4336 serialized email messages. This file may be imported into your favorite mail client (i used Thunderbird), so you may read the whole discussion from the beginning to the end.
 
 Mbox file contains both `Old Self mail list`_ and new one hosted at Yahoo.
 
