@@ -73,3 +73,16 @@ self_alone.lzma
 ---------------
 
 Mbox file with complete Yahoo archive, without Self mail list.
+
+datasets
+========
+
+self-alts.mbox.lzma
+-------------------
+
+List of messages about alternative interpreters or languages inspired by Self.
+
+self-interesting.mbox.lzma
+--------------------------
+
+List of messages I've found interesting.
